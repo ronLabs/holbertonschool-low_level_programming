@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * Desciption : main - Entry points
+ * Main - Prints the size of 
  *
  * Return: Always 0 (Success)
  */

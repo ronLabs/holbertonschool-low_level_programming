@@ -4,6 +4,7 @@
  * main - Entry point
  *
  * Return: Always 0 (Success)
+ * Header : <unistd.h> - Add library so we can use write.
  */
 int main(void)
 {

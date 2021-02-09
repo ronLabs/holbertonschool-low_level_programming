@@ -13,7 +13,7 @@ int main(void)
 	while (n < 9)
 	{
 		_putchar(str_hol[n]);
-		n +=1;
+		n += 1;
 	}
 	_putchar('\n');
 	return (0);

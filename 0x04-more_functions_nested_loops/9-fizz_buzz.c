@@ -2,7 +2,7 @@
 
 /**
  * main - The Fizz-Buzz test interview question
- * descrip: multiples of 3, 5 , 3y5 prints Fizz, Buzz, FizzBuzz respectively
+ * 
  * Return: 0
  */
 int main(void)

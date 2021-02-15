@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	char num = 48;
+	short num = 48;
 
 	while (num < 57)
 	{
@@ -16,6 +16,5 @@ int main(void)
 		num++;
 	}
 	putchar(57);
-	putchar('\n');
 	return (0);
 }

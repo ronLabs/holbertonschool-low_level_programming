@@ -1,5 +1,5 @@
 #include "holberton.h"
- 
+
 /**
  * swap_int - takes pointer to 2 integers as parameters and updates
  * the value a and b points to to 42 and 98 respectively

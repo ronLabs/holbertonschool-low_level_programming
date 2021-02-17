@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
  * _strcpy - Function that copies the string pointed to by src,
@@ -13,7 +12,7 @@ char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
-	for (i = 0; i <= 98; i++)
+	for (i = 0; i < 98; i++)
 	{
 		dest[i] = src[i];
 	}

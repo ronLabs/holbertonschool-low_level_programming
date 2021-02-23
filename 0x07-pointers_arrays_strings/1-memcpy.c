@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * _memcpy - function that fills memory with a constant byte.
- * @src: source position 
+ * @src: source position
  * @dest: dest position
  * @n: size of bytes
  * Return: pointer to a char

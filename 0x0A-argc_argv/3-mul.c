@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		}
 	printf("%d\n", product);
 	}
-	else
+	else if (argc == 1 || argc > 3)
 		printf("Error\n");
 		return (1);
 	return (0);

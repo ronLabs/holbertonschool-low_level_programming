@@ -11,16 +11,16 @@ int main(int argc, char *argv[])
 {
 	int i, product = 1;
 
-	if (argc > 1 && argc < 4)
+	if (argc == 1 || argc > 3)
 	{
+		printf("Error\n");
+		return (1);
+	}
+	else
 		for (i = 1; i < argc; i++)
 		{
 			product *= atoi(argv[i]);
 		}
-	printf("%d\n", product);
-	}
-	else if (argc == 1 || argc > 3)
-		printf("Error\n");
-		return (1);
-	return (0);
+		printf("%d\n", product);
+		return (0);
 }

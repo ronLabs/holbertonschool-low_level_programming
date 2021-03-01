@@ -2,8 +2,8 @@
 #include <string.h>
 #include "holberton.h"
 /**
- * check_digit - checks if a given char is number or not
- * @a: input char
+ * digitchecker - checks if a given char is number or not
+ * @c: input char
  * Return: int
  **/
 
@@ -16,10 +16,9 @@ int digitchecker(char *c)
 	length = strlen(c);
 	while (i < length)
 	{
-		if (c[i] < '0' || c[i] > '9')/*for no numbers*/
+		if (c[i] < '0' || c[i] > '9')/*not a number*/
 			return (-1);
-		else 
-			num = num * 10 + (c[i] - '0');/*forming the number*/
+		num = num * 10 + (c[i] - '0');/*forming the number*/
 		i++;
 	}
 	return (num);

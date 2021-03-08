@@ -11,17 +11,9 @@
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	void *new_array;
-	int limit, i;
-	char *rell, *ptr_copy;
+	unsigned int i;
+	char *rell, *cpy_ptr;
 
-	limit = old_size;
-	if (new_size > old_size)
-	{
-		limit = old_size;
-		new_array = malloc(new_size);
-		if (new_array == NULL)/*valida que exista espacio en memoria*/
-			return (NULL);
-	}
 	if (new_size == old_size)
 	{
 		return (ptr);
@@ -38,11 +30,15 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	rell = (char *)new_array;/*convierte el array void a un array char*/
-	ptr_copy = (char *)ptr;/*convierte el puntero void a un puntero char*/
-	for (i = 0; i < limit; i++)
+	new_array = malloc(new_size);
+	if (new_array == NULL)
+		return (NULL);
+	rell = (char *)new_array;
+	cpy_ptr = (char *)ptr;
+	for (i = 0; i < new_size; i++)
 	{
-		rell[i] = ptr_copy[i];
+		rell[i] = cpy_ptr[i];
 	}
+	free(ptr);
 	return (new_array);
 }

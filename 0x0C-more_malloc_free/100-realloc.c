@@ -14,9 +14,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	int limit, i;
 	char *rell, *ptr_copy;
 
+	limit = old_size;
 	if (new_size > old_size)
 	{
-		limit = new_size;
+		limit = old_size;
 		new_array = malloc(new_size);
 		if (new_array == NULL)/*valida que exista espacio en memoria*/
 			return (NULL);
@@ -43,5 +44,5 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		rell[i] = ptr_copy[i];
 	}
-	return (rell);
+	return (new_array);
 }

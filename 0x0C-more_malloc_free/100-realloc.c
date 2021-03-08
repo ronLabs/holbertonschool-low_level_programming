@@ -40,5 +40,5 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		rell[i] = cpy_ptr[i];
 	}
 	free(ptr);
-	return (new_array);
+	return (rell);
 }

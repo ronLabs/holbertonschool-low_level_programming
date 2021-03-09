@@ -14,14 +14,19 @@ struct dog
 	float age;
 	char *owner;
 };
-/*function that initialize a variable of type struct dog*/
 /**
- * init_dog - print a character
- * @d: character.
- * @name: pointer to a char
+ * init_dog - function that initialize a variable of type struct dog
+ * @d: struct dog type
+ * @name: a pointer to a char
  * @age: float
- * @owner: pointer to a char
+ * @owner: a pointer to a char
  * Return: nothing
  */
 void init_dog(struct dog *d, char *name, float age, char *owner);
+/**
+ * print_dog - function that prints a struct dog
+ * @d: struct dog type
+ * Return: nothing
+ */
+void print_dog(struct dog *d);
 #endif

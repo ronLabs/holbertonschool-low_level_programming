@@ -1,5 +1,7 @@
 #ifndef DOG_H
 #define DOG_H
+typedef struct dog dog_t;/*Defining a new type dog_t as a new name for the type struct dog */
+
 /**
  * struct dog - Dog characteristics
  * @name: name of dog, a pointer to type char

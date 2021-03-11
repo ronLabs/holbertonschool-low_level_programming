@@ -1,8 +1,11 @@
 #include <stdio.h>
 
 /**
- * print_elem - prints an integer
- * @elem: the integer to print
+ * array_iterator - function that executes a function given as a parameter
+ * on each element of an array
+ * @array: a pointer to an array
+ * @size: a datatype of unsigned integer
+ * @action: a pointer to a function
  *
  * Return: Nothing.
  */
@@ -10,7 +13,7 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	size_t i;
 	int *a;
-	
+
 	a = array;
 	if (array == NULL)
 		return;

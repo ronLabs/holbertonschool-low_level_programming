@@ -21,10 +21,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_start(alist, n);
 	for (i = 0; i < n; i++)
 	{
-		if (i == n - 1)
-			separator = "\n";
 		value = va_arg(alist, int);
-		printf("%d%c ", value, *separator);
+		if (i == n - 1)
+			printf("%d\n", value);
+		else
+			printf("%d%c ", value, *separator);
 	}
 	va_end(alist);
 }

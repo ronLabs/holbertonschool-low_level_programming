@@ -15,7 +15,7 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 	va_start(nlist, format);
-	while (format[i])
+	while (format[i] && format)
 	{
 		flag = 1;/*si no lo declaro en 1, el valor de flag sería 0 por defecto*/
 		switch (format[i])

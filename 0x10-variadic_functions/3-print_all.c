@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- * print_strings - Function that prints strings, followed by a new line
+ * print_all - Function that prints anything, followed by a new line
  * @format: give the format of each elements
  *
  * Return: Nothing
@@ -13,7 +13,7 @@ void print_all(const char * const format, ...)
 	int i, flag;
 	char *c;/*a pointer to string*/
 
-	i = 0;	
+	i = 0;
 	va_start(nlist, format);
 	while (format[i])
 	{
@@ -39,7 +39,8 @@ void print_all(const char * const format, ...)
 				flag = 0;
 				break;
 		}
-		if (format[i + 1] != '\0' && flag != 0)/*[i+1]para que se iguale a vacio y sea haga falso*/
+		if (format[i + 1] != '\0' && flag != 0)
+		/*[i+1]para que se iguale a vacio y sea haga falso*/
 			printf(", ");
 		i++;
 	}

@@ -2,7 +2,7 @@
 
 /**
  * get_bit - function that returns the value of a bit at a given index
- * @index:pointer value.
+ * @index: value.
  * @n: int value.
  * Return: an Integer
  */

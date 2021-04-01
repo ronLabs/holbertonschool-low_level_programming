@@ -1,86 +1,42 @@
 #include "holberton.h"
-void cant_write(char *s);
-void cant_read(char *s);
+
 /**
- * main - entry point!
- * @argc: number of arguments
- * @argv: value of arguments
- * Description: cp file_from file_to
- * Return: Always 0
-*/
+ * main - copy content form a file to another
+ * @argc: arguments counter
+ * @argv: arguments value
+ * Return: 0
+ */
+
 int main(int argc, char *argv[])
 {
-	char *buff[1024];
-	int fd1, fd2;
-	ssize_t rd, wr;
+	char bf[1024];
+	int wr, rd, file1, file2;
 
 	if (argc != 3)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+	file1 = open(argv[1], O_RDONLY);
+	if (file1 < 0)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-	if (argv[1] == NULL)
-	{
-		cant_read(argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fd1 = open(argv[1], O_RDONLY);
-	if (fd1 == -1)
-		cant_read(argv[1]);
-
-	fd2 = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd2 == -1)
-		cant_write(argv[2]);
-
-	rd = read(fd1, buff, 1024);
-	if (rd == -1)
-		cant_read(argv[1]);
-
-	wr = write(fd2, buff, rd);
-	if (wr == -1)
-		cant_write(argv[2]);
-	while (rd == 1024)
+	file2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (file2 < 0)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	do {
+		rd = read(file1, bf, 1024);
+		wr = write(file2, bf, rd);
+	} while (rd == 1024);
+	if (rd < 0)
 	{
-		rd = read(fd1, buff, 1024);
-		if (rd == -1)
-			cant_read(argv[1]);
-		wr = write(fd2, buff, rd);
-		if (wr == 1)
-			cant_write(argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
-	if (close(fd1) < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
-		exit(100);
-	}
-	if (close(fd2) < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
-		exit(100);
-	}
+	if (wr < 0)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	if (close(file1) < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file1), exit(100);
+	if (close(file2) < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file2), exit(100);
 	return (0);
-}
-/**
-* cant_read - function
-* @s: string to read
-*
-* Description: error function if unable to read
-* Return: 0
-*/
-void cant_read(char *s)
-{
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
-	exit(98);
-}
-/**
-* cant_write - function
-* @s: string to write
-*
-* Description: error func if unable to write
-* Return: 0
-*/
-void cant_write(char *s)
-{
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
-	exit(99);
 }

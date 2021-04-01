@@ -2,11 +2,11 @@
 void cant_write(char *s);
 void cant_read(char *s);
 /**
-* main - entry point!
-* @s: string to read/writey
-*
-* Description: cp file_from file_to
-* Return: Always 0
+ * main - entry point!
+ * @argc: number of arguments
+ * @argv: value of arguments
+ * Description: cp file_from file_to
+ * Return: Always 0
 */
 int main(int argc, char *argv[])
 {

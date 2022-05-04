@@ -36,16 +36,14 @@ int binary_search(int *array, size_t size, int value)
 	if (array == NULL)
 	{
 		return -1;
-	}
-	
-
+	}	
 	while (min <= max)
 	{
 		print_array(array, min, max);
 		mid = (min + max) / 2;
 		if (array[mid] == value)
 		{
-			return mid;
+			return (mid);
 		}
 		if (array[mid] < value)
 		{
@@ -55,7 +53,5 @@ int binary_search(int *array, size_t size, int value)
 			max = mid - 1;
 
 	}
-	return -1;
+	return (-1);
 }
-
-

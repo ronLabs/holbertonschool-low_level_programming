@@ -15,7 +15,7 @@ void print_array(int *array, int min, int max)
 	printf("Searching in array:");
 	for (i = min; i < max; i++)
 		printf(" %d,", array[i]);
-	printf("%d\n", array[i]);
+	printf("% d\n", array[i]);
 }
 
 /**

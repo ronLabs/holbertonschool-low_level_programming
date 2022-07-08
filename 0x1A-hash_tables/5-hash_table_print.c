@@ -19,4 +19,4 @@ void hash_table_print(const hash_table_t *ht)
 		for (curr = array[i]; curr != NULL; sep = ", ", curr = curr->next)
 			printf("%s'%s': '%s'", sep, curr->key, curr->value);
 	printf("}\n");
-
+}
